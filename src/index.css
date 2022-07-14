@@ -99,32 +99,22 @@ img{
     width:100%;
     object-fit: cover;
 }
-/* media queries ==================== (small devices (mobs) */
+
+/* ===========MEDIA QUERIES (MEDIUM DEVICES) */
+@media screen and(max-width:1024px) {
+    .container{
+        width:var(--container-width-md)
+    }
+    section>h2{
+        margin-top:6rem;
+    }
+    
+}
+
+/* ===========MEDIA QUERIES (SMALL DEVICES) */
 @media screen and(max-width:600px) {
     .container{
-        width:var(--container-width-md)
-    }
-    section{
-        margin-top:6rem;
-    }
-    
-}
-
-/* media queries ==================== (medium devices) */
-@media screen and(max-width:1024px) {
-    .container{
         width:var(--container-width-sm)
-    }
-    section{
-        margin-top:6rem;
-    }
-    
-}
-
-/* media queries ==================== (medium devices) */
-@media screen and(max-width:1024px) {
-    .container{
-        width:var(--container-width-md)
     }
     section > h2{
         margin-top:2rem;
