@@ -2,9 +2,11 @@ import React from 'react'
 import './Services.css'
 const Services = () => {
   return (
-    <div>
+   
+     <section id="services">
       service
-    </div>
+     </section>
+    
   )
 }
 
