@@ -29,7 +29,7 @@ const About = () => {
             <article className="about__card">
               <TbUsers className='about__icon' />
               <h5>Clients</h5>
-              <small>200+ world wide</small>
+              <small>200+worldwide</small>
             </article>
 
             <article className="about__card">
@@ -46,7 +46,6 @@ const About = () => {
           <a href="#contact" className='btn btn-primary'> Let's Talk</a>
 
         </div>
-
       </div>
     </section>
 
