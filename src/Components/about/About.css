@@ -57,14 +57,15 @@ article{
     font-size: 0.95rem;
 }
 
-.about__card small {
+small {
     font-size: 0.7rem;
     color: var(--color-light)
 }
 
 .about__content p {
    margin:2rem 0 2.6rem;
-    color: var(--color-light)
+    color: var(--color-light);
+    font-size: 0.95rem;
 }
 
 /*===================MEDIA QUERIES(MEDIUM DEVICES)==============*/
@@ -96,7 +97,6 @@ article{
         height: 100vh;
     }
     .about__container {
-        background-color: green;
         width: 100%;
         
         
