@@ -93,9 +93,7 @@ small {
 
 /*===================MEDIA QUERIES(SMALL DEVICES)==============*/
 @media screen and (max-width:600px) {
-    .container{
-        height: 100vh;
-    }
+    
     .about__container {
         width: 100%;
         
