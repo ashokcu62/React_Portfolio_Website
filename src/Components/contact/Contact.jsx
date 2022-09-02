@@ -1,19 +1,40 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Contact.css'
 import { IoLogoWhatsapp } from 'react-icons/io'
 import { MdEmail } from 'react-icons/md'
 import { FaFacebookMessenger } from 'react-icons/fa'
+
+// =============Email JS ============ npm i emailjs-com
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+//============================
+
 
 
 
 
 const Contact = () => {
 
+  useEffect(()=>{
+    console.log(process.env.REACT_APP_PUBLIC_KEY)
+  },[])
+  const form = useRef();
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(form.current)
 
+   
 
+    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
+      .then((result) => {
+        console.log(result.text);
+      }).catch((error) => {
+        console.log( "faild to connect",error.text);
+      });
+  }
+  
   return (
-
     <section id="contact">
       <h5>get in tuch</h5>
       <h2>contact me</h2>
@@ -53,12 +74,12 @@ const Contact = () => {
         {/* end of contact options */}
         <div className="contact__form">
 
-          <form>
+          <form ref={form} onSubmit={sendEmail} >
             <input type="text" name='name' placeholder='Your Full Name' required />
             <input type="text" name='email' placeholder='Your email' required />
             <input type="number" name='phone' placeholder='mobile number' required />
             <textarea name="message" rows="7" placeholder='enter your message' required />
-            <button type='submit' className='btn btn-primary'>send mesage</button>
+            <button  className='btn btn-primary'>send mesage</button>
           </form>
         </div>
       </div>
@@ -67,4 +88,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Contact;
