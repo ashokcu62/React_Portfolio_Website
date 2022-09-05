@@ -47,7 +47,7 @@ const Testimonials = () => {
 
 
   return (
-    <section>
+    <section id='testimonial'>
       <h5>review form clients</h5>
       <h2>testimonials</h2>
       <Swiper
