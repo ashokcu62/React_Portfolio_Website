@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './Contact.css'
 import { IoLogoWhatsapp } from 'react-icons/io'
-import { MdEmail } from 'react-icons/md'
+import { MdBlock, MdEmail } from 'react-icons/md'
 import { FaFacebookMessenger } from 'react-icons/fa'
 
 // =============Email JS ============ npm i emailjs-com
@@ -11,29 +11,32 @@ import emailjs from '@emailjs/browser';
 
 
 
-
-
 const Contact = () => {
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(process.env.REACT_APP_PUBLIC_KEY)
-  },[])
+  }, [])
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
     console.log(form.current)
 
-   
+    try {
+      // email js function
+      emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
+      alert("successfully submited")
 
-    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
-      .then((result) => {
-        console.log(result.text);
-      }).catch((error) => {
-        console.log( "faild to connect",error.text);
-      });
+    } catch (err) {
+      alert("email api errror ", err.message)
+    } finally {
+
+      // reload page
+      window.location.reload();
+
+    }
   }
-  
+
   return (
     <section id="contact">
       <h5>get in tuch</h5>
@@ -79,7 +82,7 @@ const Contact = () => {
             <input type="text" name='email' placeholder='Your email' required />
             <input type="number" name='phone' placeholder='mobile number' required />
             <textarea name="message" rows="7" placeholder='enter your message' required />
-            <button  className='btn btn-primary'>send mesage</button>
+            <button className='btn btn-primary'>send mesage</button>
           </form>
         </div>
       </div>
